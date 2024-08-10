@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+        <script>
+    AOS.init();
+  </script>
+      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .info-section {
+            background-color: #ffffff;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            border-bottom: 2px solid #ddd;
+        }
+        .info-box {
+            flex: 1;
+            padding: 20px;
+            margin: 0 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        .info-box h3 {
+            color: #000;
+            margin-bottom: 15px;
+        }
+        .info-box p {
+            color: #555;
+        }
+        .info-box a {
+            color: #0073e6;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+        .info-box a:hover {
+            text-decoration: underline;
+        }
+        .info-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 50px;
+        }
+        .info-icons div {
+            text-align: center;
+        }
+        .info-icons img {
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        .info-icons span {
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
+        }
+        .body1 {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .footer {
+            background-color: #000066;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+        .footer-column h3 {
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        .footer-column a {
+            color: #77aaff;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+        .payment-options {
+            margin: 20px 0;
+        }
+        .payment-options img {
+            margin: 0 10px;
+            height: 30px;
+        }
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #999;
+        }
+    h1.a{
+    color:#060270;}
+<!--     .inline {-->
+<!--            display: inline-block;-->
+<!--            vertical-align:end;-->
+<!--        }-->
+    .first
+    {background-image:url("{% static 'image/img_1.png' %}");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width:100%;
+    height:70vh;
+    }
+    .card{box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    background-image:url("{% static 'image/img_1.png' %}");
+    background-size: cover;
+<!--    background-repeat: no-repeat;-->
+   background-position: center;}
+   #exampleModalLabel{margin-left:5rem;}
+    .a1{color:white;}
+</style>
+<body>
+               {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+      <img src="{% static 'image/logo1.png' %}" alt="Image" class="inline" style="width: 50px; height: 50px;padding-right:10px;">
+    <span class="inline" style="font-size:30px;margin-right:60rem;color:#060270">𝐅𝐋𝐈𝐆𝐇𝐓</span>
+        <a class=navbar-brand  href="http://127.0.0.1:8000/flightapp/sellerreg/"><img src="{% static 'image/aut.png' %}"style="width:50px;height:50px;"> </a>
+       <a class=navbar-brand  href="http://127.0.0.1:8000/flightapp/booking/"></a>
+  </div>
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+
+        </li>
+        <li class="nav-item">
+
+
+        </li>
+      </ul>
+        <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" style="border-radius:20px;width:6rem;margin-right:60px;" data-bs-toggle="modal" data-bs-target="#exampleModal">𝐋𝐎𝐆𝐈𝐍
+
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+    <img src="{% static 'image/logo1.png' %}" alt="Image" class="inline" style="width: 30px; height: 30px;">
+    <span class="inline" style="font-size:20px;color:#060270">𝐅𝐋𝐈𝐆𝐇𝐓</span>
+        <h5 class="modal-title"  id="exampleModalLabel">𝐋𝐨𝐠𝐢𝐧 𝐭𝐨 𝐅𝐥𝐢𝐠𝐡𝐭</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" align="center">
+    <form method="post" >{% csrf_token %}
+<br><br>
+        <div class="login" style="">
+        <label> 𝐄𝐧𝐭𝐞𝐫 𝐭𝐡𝐞 𝐄𝐦𝐚𝐢𝐥: </label><input type="email" name="email"><br><br>
+        <label>𝐄𝐧𝐭𝐞𝐫 𝐭𝐡𝐞 𝐏𝐚𝐬𝐬𝐰𝐨𝐫𝐝:</label><input type="password" name="password"><br><br>
+  <input type="submit" value="login"><br><br><br>
+            </div>
+        <h5>𝐟𝐨𝐫𝐠𝐨𝐭 𝐩𝐚𝐬𝐬𝐰𝐨𝐫𝐝</h5>
+        <a href="http://127.0.0.1:8000/flightapp/forgot/ " class="btn btn-primary">𝐂𝐥𝐢𝐜𝐤 𝐇𝐞𝐫𝐞</a>
+    </form><br>
+
+      </div>
+      <div class="modal-footer" style="margin-right:90px;">
+         <h6>𝐍𝐨𝐭 𝐑𝐞𝐠𝐢𝐬𝐭𝐞𝐫𝐞𝐝 𝐘𝐞𝐭?<a href="http://127.0.0.1:8000/flightapp/userreg/ "class="btn btn-primary ms-3">𝐑𝐞𝐠𝐢𝐬𝐭𝐞𝐫 𝐍𝐨𝐰...</a></h6>
+      </div>
+    </div>
+  </div>
+
+      </ul>
+    </div>
+</nav>
+
+        <div class="first">
+            <div class="row">
+                <div class="col-7 pt-5 ps-5">
+                    <h1 style="color:white;margin-top:10rem;">𝐁𝐨𝐨𝐤 𝐃𝐨𝐦𝐞𝐬𝐭𝐢𝐜 𝐅𝐥𝐢𝐠𝐡𝐭 𝐓𝐢𝐜𝐤𝐞𝐭𝐬</h1>
+                </div>
+
+            </div></div>
+                <div class="container-fluid  pt-1 " style="height:60vh;" >
+                    <h2 align="center" style="margin-top:20px;color:#060270">𝐏𝐎𝐏𝐔𝐋𝐀𝐑 𝐃𝐄𝐒𝐓𝐈𝐍𝐀𝐓𝐈𝐎𝐍</h2>
+    <div class="row p-5">
+        <div class="col-3">
+            <div class="card1" style="width: 18rem;height:65vh" data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000">
+  <img src="{% static 'image/img_3.png' %}"class="card-img-top" style="height:40vh;" alt="...">
+  <div class="card-body">
+
+
+    <h1 align="center"><a href="#" class="btn"> 𝑫𝑬𝑳𝑯𝑰</a></h1>
+  </div>
+</div>
+        </div>
+                <div class="col-3">
+            <div class="card1" style="width: 18rem;height:65vh" data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000">
+  <img src="{% static 'image/img_7.png' %}"class="card-img-top" style="height:40vh;" alt="...">
+  <div class="card-body">
+
+
+    <h1 align="center"><a href="#" class="btn">𝐑𝐀𝐉𝐀𝐒𝐓𝐇𝐀𝐍</a></h1>
+  </div>
+</div>
+        </div>
+                <div class="col-3">
+            <div class="card1" style="width: 18rem;height:65vh" data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000">
+  <img src="{% static 'image/img_5.png' %}"class="card-img-top"style="height:40vh;" alt="...">
+  <div class="card-body">
+
+
+    <h1 align="center"><a href="#" class="btn">𝐌𝐔𝐌𝐁𝐀𝐈</a></h1>
+  </div>
+</div>
+        </div>
+                <div class="col-3">
+            <div class="card1" style="width: 18rem;height:65vh" data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000">
+  <img src="{% static 'image/img_6.png' %}"class="card-img-top" style="height:40vh;"alt="...">
+  <div class="card-body">
+
+
+    <h1 align="center"><a href="#" class="btn">𝐆𝐎𝐀</a></h1>
+  </div>
+</div>
+        </div>
+    </div>
+</div>
+<div class="row p-5">
+        <div class="col-3">
+            <div class="card1" style="width: 18rem;height:65vh" data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000">
+  <img src="{% static 'image/img_8.png' %}"class="card-img-top" style="height:40vh;" alt="...">
+  <div class="card-body">
+
+
+    <h1 align="center"><a href="#" class="btn">𝐇𝐈𝐌𝐀𝐂𝐇𝐀𝐋 𝐏𝐑𝐀𝐃𝐄𝐒𝐇</a></h1>
+  </div>
+</div>
+        </div>
+                <div class="col-3">
+            <div class="card1" style="width: 18rem;height:65vh" data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000">
+  <img src="{% static 'image/img_10.png' %}"class="card-img-top" style="height:40vh;" alt="...">
+  <div class="card-body">
+
+
+    <h1 align="center"><a href="#" class="btn">𝐖𝐄𝐒𝐓 𝐁𝐄𝐍𝐆𝐀𝐋</a></h1>
+  </div>
+</div>
+        </div>
+                <div class="col-3">
+            <div class="card1" style="width: 18rem;height:65vh" data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000">
+  <img src="{% static 'image/KERALA.png' %}"class="card-img-top"style="height:40vh;" alt="...">
+  <div class="card-body">
+
+
+    <h1 align="center"><a href="#" class="btn">𝐊𝐄𝐑𝐀𝐋𝐀</a></h1>
+  </div>
+</div>
+        </div>
+                <div class="col-3">
+            <div class="card1" style="width: 18rem;height:65vh" data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000">
+  <img src="{% static 'image/PUN.png' %}"class="card-img-top" style="height:40vh;"alt="...">
+  <div class="card-body">
+
+
+    <h1 align="center"><a href="#" class="btn">𝐏𝐔𝐍𝐆𝐀𝐁</a></h1>
+  </div>
+</div>
+        </div>
+    </div>
+</div>
+  <div class="info-icons">
+        <div>
+            <img src="{% static 'image/ref.png' %}" alt="Wide Selection">
+            <span>Wide selection</span>
+        </div>
+        <div>
+            <img src="{% static 'image/hand.png' %}" alt="Trusted by 30M passengers">
+            <span>Trusted by 30M passengers a year</span>
+        </div>
+        <div>
+            <img src="{% static 'image/exp.png' %}" alt="Over 20 years of experience">
+            <span>Over 20 years of experience</span>
+        </div>
+    </div>
+
+    <!-- Information Section -->
+    <div class="info-section">
+        <div class="info-box">
+            <h3>Flexibility at ease</h3>
+            <p>Now you have all you need for your seamless flight. With a variety of services such as Flexible Ticket, Cancellation Guarantee and many more to make your perfect trip happen.</p>
+            <a href="#">Learn more about our services →</a>
+        </div>
+        <div class="info-box">
+            <h3>Stay in the loop</h3>
+            <p>Log in to My Bookings with your email and order number to view your check-in options and additional services. Plus, track your refund status in real-time.</p>
+            <a href="#">Log In to My Bookings →</a>
+        </div>
+        <div class="info-box">
+            <h3>Your world, one app</h3>
+            <p>Book your next flight on-the-go with the Flight Network app! Store your booking details, check in quickly, and enjoy exclusive offers. It's travel made easy. Fly smart and enjoy more with the app.</p>
+            <a href="#">Get it here for free →</a>
+        </div>
+    </div>
+
+<div class="body1">
+ <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Products and services</h3>
+                <a href="#">Cancellation protection</a>
+            </div>
+            <div class="footer-column">
+                <h3>About us</h3>
+                <a href="#">About us</a>
+                <a href="#">Terms and Conditions</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Information on cookies</a>
+            </div>
+            <div class="footer-column">
+                <h3>Support</h3>
+                <a href="#">Contact us</a>
+                <a href="#">FAQ</a>
+                <a href="#">Airline Information</a>
+                <a href="#">My Bookings</a>
+            </div>
+            <div class="footer-column">
+                <h3>Log in</h3>
+                <a href="#">My Bookings</a>
+            </div>
+        </div>
+        <div class="payment-options">
+            <img src="{% static 'image/vis.png' %}" style="width:60px;height:30px;">Visa
+            <img src="{% static 'image/mas.png' %}" style="width:60px;height:30px;">Mastercard
+            <img src="{% static 'image/diners.png' %}" style="width:60px;height:30px;">diners club
+            <img src="{% static 'image/gpay.png' %}" style="width:60px;height:60px;">GPay
+        </div>
+        <div class="footer-bottom">
+            <p>FLIGHT / Gotogate International AB, Box 1340, SE-751 43 Uppsala, Sweden. Corp. ID no. 556538-1265, VAT no. SE556538126501</p>
+            <p>&copy; 2024 FLIGHT. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+
+  </div>
+
+ <script>
+    AOS.init();
+  </script>
+
+
+</body>
+</html>

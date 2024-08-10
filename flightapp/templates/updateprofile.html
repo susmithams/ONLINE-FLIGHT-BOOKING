@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body{background-image:url("{% static 'image/img_1.png' %}");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width:100%;
+    height:70vh;
+    }
+    .card{
+    background-image:url("{% static 'image/img_1.png' %}");
+    background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.46) 0px 2px 1px, rgba(0, 0, 0, 0.69) 0px 4px 2px, rgba(0, 0, 0, 0.49) 0px 8px 4px, rgba(0, 0, 0, 0.59) 0px 16px 8px, rgba(0, 0, 0, 0.69) 0px 32px 16px;
+    }
+
+</style>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+      <img src="{% static 'image/logo1.png' %}" alt="Image" class="inline" style="width: 50px; height: 50px;padding-right:10px;">
+    <span class="inline" style="font-size:30px;padding-right:70rem;color:#060270">𝐅𝐋𝐈𝐆𝐇𝐓</span>
+  </div>
+</nav>
+<div class="row pt-5">
+    <div class="col-5"></div>
+    <div class="col-4">
+<div class="card" style="width:20rem;height:35rem;border-radius:15px;">
+  <div class="card-header" align="center" style="color:white;">
+    𝐄𝐝𝐢𝐭 𝐚𝐜𝐜𝐨𝐮𝐧𝐭
+  </div>
+  <ul class="list-group list-group-flush" align="center">
+    <form method="post">{% csrf_token %}
+ <input type="text" name="fullname" value="{{data.fullname}}"><br><br>
+    <input type="email" name="email" value="{{data.email}}"><br><br>
+    <input type="number" name="phone" value="{{data.phone}}"><br><br>
+    <input type="radio" name="gender" value="male"{% if data.gender == "male" %}checked {% endif %} >Male
+       <input type="radio" name="gender" value="female"{% if data.gender == "female" %}checked {% endif %} >Female
+    <input type="submit" value="Update Now" align="center">
+
+    </form>
+      </div>
+</div>
+    <div class="col-4"></div>
+    </div>
+
+</body>
+</html>

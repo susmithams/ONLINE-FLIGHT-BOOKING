@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <script>
+        function myfun(){
+            var input,filter,table,tr,td,txtvalue,i;
+            input=document.getElementById("Myinput");
+            filter=input.value.toUpperCase();
+            table=document.getElementById("myTable");
+            tr=table.getElementsByTagName("tr");
+            for (i=1;i<tr.length;i++){        //to skip heading(name) iterate from 1
+                td=tr[i].getElementsByClassName('td1')[0];
+
+
+            txtvalue=td.textContent ||td.innerText;
+
+            if(txtvalue.toUpperCase().indexOf(filter)>-1){
+                tr[i].style.display="";
+
+            }
+            else{
+                tr[i].style.display="none";
+            }
+
+            }
+        }
+           function myfun2(){
+            var input,filter,table,tr,td,txtvalue,i;
+            input=document.getElementById("Myinput2");
+            filter=input.value.toUpperCase();
+            table=document.getElementById("myTable");
+            tr=table.getElementsByTagName("tr");
+            for (i=1;i<tr.length;i++){        //to skip heading(name) iterate from 1
+                td=tr[i].getElementsByClassName('td2')[0];
+
+
+            txtvalue=td.textContent ||td.innerText;
+
+            if(txtvalue.toUpperCase().indexOf(filter)>-1){
+                tr[i].style.display="";
+
+            }
+            else{
+                tr[i].style.display="none";
+            }
+
+            }
+        }
+    </script>
+<body>
+<nav class="navbar navbar-expand-lg fixed-top   navbar-primary bg-primary">
+  <div class="container-fluid">
+      <a href="http://127.0.0.1:8000/flightapp/addflight/" class="btn btn-primary">Add New Flight</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+            <input type="text" id="Myinput" onkeyup="myfun()"placeholder="FROM:">-
+
+        </li>
+        <li class="nav-item">
+        <input type="text" id="Myinput2" onkeyup="myfun2()"placeholder="TO:">
+                    <button class="btn btn-primary" type="submit">Search</button>
+
+
+        </li>
+
+        <li class="nav-item">
+                    <h5 style="padding-left:40rem;">{{data.first_name}}</h5>
+
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<!--<div class="container-fluid">-->
+<!--    <nav class="navbar navbar-expand-lg navbar-light bg-primary">-->
+
+
+
+
+<div class="container-fluid pt-5 mt-5">
+<table id="myTable" class="table table-striped">
+  <tr>
+      <th>Flight</th>
+      <th>Depart</th>
+      <th>Arrival</th>
+      <th>Duration</th>
+      <th>price</th>
+      <th>Available Seats</th>
+      <th></th>
+      <th></th>
+  </tr>
+    {% for i in a %}
+    <tr>
+        <td>{{i.airline}}<br>{{i.code}}</td>
+        <td class="td1">{{i.origin}}<br>{{i.city}}<br>{{i.depart_time}}</td>
+        <td class="td2">{{i.destination}}<br>{{i.airport}}<br>{{i.arrival_time}}</td>
+        <td>{{i.duration}}</td>
+        <td>economy:{{i.economy_fare}}<br>business:{{i.business_fare}}<br>first class:{{i.first_fare}}</td>
+        <td>{{i.seats}}</td>
+        <td><a href="http://127.0.0.1:8000/flightapp/updateflight/{{i.id}}" class="btn btn-success">Edit</a></td>
+        <td><a href="http://127.0.0.1:8000/flightapp/deleteflight/{{i.id}}" class="btn btn-danger">Cancel</a></td>
+
+    </tr>
+
+    {% endfor %}
+</table>
+
+</div>
+</div>
+
+</body>
+</html>

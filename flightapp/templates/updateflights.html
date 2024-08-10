@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container-fluid">
+    <h1 align="center">UPDATE FLIGHTS DETAILS</h1>
+    <form method="post">{% csrf_token %}
+<div class="row">
+    <div class="col-lg-4 col-sm-4"></div>
+    <div class="col-lg-4 col-sm-4">
+        <input type="text" placeholder="Enter the Source Airport:" name="city" value="{{data.city}}"><br>
+        <input type="text" placeholder="Enter the Code:" name="code" value="{{data.code}}"><br>
+        <input type="text" placeholder="Enter the Country:" name="country" value="{{data.country}}"><br>
+        <input type="text" placeholder="Enter the origin:" name="origin" value="{{data.origin}}"><br>
+        <input type="text" placeholder="Enter the destination:" name="destination" value="{{data.destination}}"><br>
+        Enter the Depart-Time:<input type="time" placeholder="Enter the Depart-Time:" name="dept-time" value="{{data.depart_time}}"><br>
+        Enter the Arrival-Time:<input type="time" placeholder="Enter the Arrival-Time:" name="arr-time" value="{{data.arrival_time}}"><br>
+        Enter the Duration: <input type="text" placeholder="Enter the Duration:" name="duration" value="{{data.duration}}"><br>
+        <input type="text" placeholder="Enter the Destination Airport:" name="airport" value="{{data.airport}}"><br>
+        <input type="text" placeholder="Enter the Airline:" name="airline" value="{{data.airline}}"><br>
+        <input type="number" placeholder="Enter the Available seats:" name="seats" value="{{data.seats}}"><br>
+        <input type="number" placeholder="Enter the Economy Fare:" name="eco-fir" value="{{data.economy_fare}}"><br>
+        <input type="number" placeholder="Enter the Business Fare:" name="bus-fir" value="{{data.business_fare}}"><br>
+        <input type="number" placeholder="Enter the First-class Fare:" name="firs-fir" value="{{data.first_fare}}"><br>
+        <input type="submit" value="Update">
+
+
+    </div>
+    </form>
+    <div class="col-lg-4 col-sm-4"></div>
+</div>
+
+
+</div>
+
+</body>
+</html>
